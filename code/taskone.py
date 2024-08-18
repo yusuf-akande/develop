@@ -29,7 +29,7 @@ train_data.to_sql('training_data', engine, if_exists='replace', index=False, dty
 # Load the ideal functions into another table
 # https://pandas.pydata.org/docs/user_guide/io.html
 
-ideal_df = pd.read_csv('/path/to/ideal.csv')
+ideal_df = pd.read_csv('../data/ideal.csv')
 ideal_df.to_sql('ideal_functions', engine, if_exists='replace', index=False)
 
 
@@ -101,7 +101,7 @@ def process_test_data(test_file):
     return pd.DataFrame(test_results)
 
 # Process test data and store results
-test_results_df = process_test_data('/path/to/test.csv')
+test_results_df = process_test_data('../data/test.csv')
 test_results_df.to_sql('test_results', engine, if_exists='replace', index=False, dtype={'x': Float, 'y': Float, 'ideal_y': Float, 'deviation': Float, 'best_fit_function': Integer})
 
 # Plotting
